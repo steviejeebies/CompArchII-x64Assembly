@@ -34,10 +34,10 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <MASM Include="t2.asm">
+    <MASM Include="sample.asm">
       <Filter>Source Files</Filter>
     </MASM>
-    <MASM Include="sample.asm">
+    <MASM Include="t2.asm">
       <Filter>Source Files</Filter>
     </MASM>
   </ItemGroup>

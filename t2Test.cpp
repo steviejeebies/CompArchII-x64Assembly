@@ -36,12 +36,12 @@ int main()
 	
 	// Fibonacci Series
 	std::cout << "Fibonacci Series: " << "\n";
-	for (int i = -50; i < 20; ++i)
+	for (int i = -1; i < 20; ++i)
 		std::cout << fib(i) << " ";
 	std::cout << "\n";
 
 	std::cout << "Fibonacci Series by assembly: " << "\n";
-	for (int i = -50; i < 20; ++i)
+	for (int i = -1; i < 20; ++i)
 		std::cout << fibX64(i) << " ";
 	std::cout << "\n\n";
 	

@@ -158,14 +158,12 @@
     <MASM Include="sample.asm">
       <FileType>Document</FileType>
     </MASM>
+    <MASM Include="t2.asm" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="sample.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="t2.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <MASM Include="t2.asm" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
