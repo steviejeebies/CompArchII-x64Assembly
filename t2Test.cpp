@@ -28,7 +28,7 @@ void check(const char *s, _int64 v, _int64 expected) {
 
 int main()
 {
-	long long inp_int = 3;
+	long long inp_int = 40;
 
 	// Evaluating the procedures
 	
@@ -40,7 +40,12 @@ int main()
 		std::cout << fib(i) << " ";
 	std::cout << "\n";
 
-	std::cout << "Fibonacci Series by assembly: " << "\n";
+	std::cout << "Fibonacci Series by assembly O(2^n) version: " << "\n";
+	for (int i = -1; i < 20; ++i)
+		std::cout << fibX64_old(i) << " ";
+	std::cout << "\n\n";
+
+	std::cout << "Fibonacci Series by assembly O(n) version: " << "\n";
 	for (int i = -1; i < 20; ++i)
 		std::cout << fibX64(i) << " ";
 	std::cout << "\n\n";

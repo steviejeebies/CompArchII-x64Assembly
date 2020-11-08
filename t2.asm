@@ -92,7 +92,7 @@ if_ne_1:
 	mov rax, [r8]				; RAX = valueNminus1
 	add rax, [r8+8]				; this is the equivalent of "return fibonacci_recursion(fin_1) + fibonacci_recursion(fin_2);" in the pseudocode
 	mov rdx, [r8]				; getting the value of valueNminu1 again and storing it in RDX
-	mov [r8+8], rdx			; putting the old value of valueNminus1 into valueNminus2
+	mov [r8+8], rdx				; putting the old value of valueNminus1 into valueNminus2
 	mov [r8], rax				; putting the result of this fib number in valueNminus1
 	ret							
 
@@ -131,7 +131,7 @@ use_scanf:
 
 public max
 max:
-	mov r9, rcx					;; v = a
+	mov r9, rcx					;; R9 = v = a
 	cmp rdx, r9
 	jle m1
 	mov r9, rdx
@@ -144,21 +144,19 @@ m2:
 
 public max5
 max5:
-	mov [rsp + 8], rcx			; preserve inputted parameters
-	mov [rsp + 16], rdx
-	mov [rsp + 24], r8
+	mov [rsp + 24], r8			; preserve inputted parameters
 	mov [rsp + 32], r9
-	sub rsp, 24					; shadow space = 3*8
+	sub rsp, 32					; shadow space = 3*8
 	sub rsp, 8					; align
-	mov r8, rdx
-	mov rdx, rcx
-	mov rcx, user_input_value
+	mov r8, rdx					; param 3
+	mov rdx, rcx				; param 2
+	mov rcx, user_input_value	; param 1
 	call max
-	mov rcx, rax
-	mov rdx, [rsp + 56]
-	mov	r8, [rsp + 64]
+	mov rcx, rax				; param 3
+	mov rdx, [rsp + 64]			; param 2
+	mov	r8, [rsp + 72]			; param 1
 	call max
-	add rsp, 24					; shadow space = 3*8
+	add rsp, 32					; remove shadow space = 3*8
 	add rsp, 8					; align
 	ret
 
