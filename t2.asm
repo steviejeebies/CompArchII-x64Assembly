@@ -3,13 +3,13 @@ extrn printf:near
 extern scanf:near
 
 .data
-	user_input_value QWORD 0
+	public inp_int
+	inp_int QWORD 0
 	please_enter BYTE "Please enter an integer: ", 0Ah, 00h
 	scan_string BYTE "%lld", 00h
 	out_string BYTE "The sum of proc. and user inputs (%lld, %lld, %lld, %lld) : %lld", 0Ah, 00h
 	lvlRecursion QWORD 0
 .code
-
 public fibX64_old
 
 fibX64_old:
@@ -110,14 +110,14 @@ use_scanf:
 	lea rcx, please_enter			;; printf("Please enter an integer: ")
 	call printf						;; call the function
 	lea rcx, scan_string
-	lea rdx, user_input_value		
+	lea rdx, inp_int		
 	call scanf						;; take user input
 	mov rcx, [rsp + 64]				;; sum = a + b + c
 	add rcx, [rsp + 72]
 	add rcx, [rsp + 80]
-	add rcx, user_input_value		;; sum = sum + user_input_value
+	add rcx, inp_int				;; sum = sum + inp_int
 	mov [rsp + 40], rcx				;; parameter 6: sum
-	mov rdx, user_input_value		;; parameter 5: input value
+	mov rdx, inp_int				;; parameter 5: input value
 	mov [rsp + 32], rdx			
 	mov r9, [rsp + 80]				;; parameter 4: c
 	mov r8, [rsp + 72]				;; parameter 3: b
@@ -150,7 +150,7 @@ max5:
 	sub rsp, 8					; align
 	mov r8, rdx					; param 3
 	mov rdx, rcx				; param 2
-	mov rcx, user_input_value	; param 1
+	mov rcx, inp_int			; param 1
 	call max
 	mov rcx, rax				; param 3
 	mov rdx, [rsp + 64]			; param 2
